@@ -84,6 +84,11 @@
         #define portTICK_TYPE_IS_ATOMIC    1
     #endif
 /*-----------------------------------------------------------*/
+ 
+#ifdef configASSERT
+        void vPortValidateInterruptPriority( void );
+        #define portASSERT_IF_INTERRUPT_PRIORITY_INVALID()    vPortValidateInterruptPriority()
+#endif
 
 /**
  * Architecture specifics.
